@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a357b">
+  <meta name="description" content="ことのはノートは、日々の気持ちや体調を専門家に伝え、あなたに合うケアにつなげる交換ノートサービスです。">
+  <title>ことのはノート｜その気持ちを、ひとりで抱えないために。</title>
+  <style>
+    :root {
+      --navy: #1a357b;
+      --navy-deep: #14295f;
+      --ink: #293746;
+      --muted: #687584;
+      --paper: #f1f3f5;
+      --paper-2: #e8edf1;
+      --white: #fbfcfc;
+      --line: #d7dfe6;
+      --sage: #aebbc5;
+      --sage-deep: #687f94;
+      --clay: #c58e78;
+      --cream: #e8dfca;
+      --shadow: 0 18px 55px rgba(34, 44, 68, .09);
+      --serif: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+      --sans: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.85;
+      letter-spacing: .035em;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--sage-deep); font-size: 11px; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    .serif { font-family: var(--serif); font-weight: 500; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 14px;
+      min-height: 54px; padding: 0 27px; border-radius: 3px;
+      background: var(--navy); color: white; font-size: 13px; font-weight: 700;
+      letter-spacing: .08em; transition: .2s ease; border: 1px solid var(--navy);
+    }
+    .btn:hover { background: var(--navy-deep); transform: translateY(-2px); }
+    .btn .arrow { font-size: 18px; line-height: 1; }
+    .btn-outline { background: transparent; color: var(--navy); }
+    .btn-outline:hover { color: white; }
+    header {
+      height: 82px; display: flex; align-items: center;
+      border-bottom: 1px solid rgba(26,53,123,.1); background: rgba(247,244,236,.92);
+      position: relative; z-index: 5;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); }
+    .brand-mark {
+      width: 35px; height: 35px; border: 1px solid var(--navy); border-radius: 50%;
+      display: grid; place-items: center; font-family: var(--serif); font-size: 19px;
+    }
+    .brand-name { font-family: var(--serif); font-size: 19px; letter-spacing: .12em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: #596174; font-size: 12px; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav .btn { min-height: 42px; padding: 0 18px; font-size: 11px; }
+    .hero { padding: 82px 0 94px; overflow: hidden; position: relative; }
+    .hero::before {
+      content: ""; position: absolute; width: 480px; height: 480px; border-radius: 50%;
+      right: -140px; top: -150px; background: #e5eaf0; opacity: .7;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 55px; align-items: center; position: relative; }
+    .hero-copy { padding: 18px 0; }
+    .hero h1 {
+      margin: 25px 0 23px; color: var(--navy); font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 53px); line-height: 1.62; font-weight: 500;
+      letter-spacing: .055em;
+    }
+    .hero h1 span { background: linear-gradient(transparent 72%, #d9dfd1 72%); }
+    .hero-lead { max-width: 470px; color: #626b79; font-size: 14px; line-height: 2.15; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+    .small-note { margin-top: 15px; color: #858b91; font-size: 10px; }
+    .hero-art { position: relative; min-height: 430px; display: grid; place-items: center; }
+    .paper-sheet {
+      width: min(390px, 92%); min-height: 410px; padding: 34px 34px 28px;
+      background: var(--white); border: 1px solid #dce3e9;
+      box-shadow: 18px 22px 0 #e2e8ed, var(--shadow); transform: rotate(2deg);
+      position: relative;
+    }
+    .paper-sheet::before {
+      content: ""; position: absolute; left: 20px; top: 0; bottom: 0; width: 1px;
+      background: #dce4ea;
+    }
+    .paper-date { color: #8b96a1; font-family: var(--serif); font-size: 12px; text-align: right; }
+    .paper-title { color: var(--navy); font-family: var(--serif); font-size: 20px; margin: 25px 0 18px; }
+    .paper-lines { color: #637181; font-family: var(--serif); font-size: 13px; line-height: 2.55; }
+    .paper-sign { margin-top: 26px; text-align: right; color: var(--sage-deep); font-family: var(--serif); font-size: 13px; }
+    .stamp {
+      position: absolute; right: -15px; bottom: 24px; width: 88px; height: 88px;
+      border: 1px solid #c58e78; border-radius: 50%; display: grid; place-items: center;
+      color: #c58e78; font-family: var(--serif); font-size: 12px; line-height: 1.5;
+      text-align: center; transform: rotate(-12deg); background: rgba(247,244,236,.9);
+    }
+    .floating-note {
+      position: absolute; left: -5px; bottom: 20px; background: #e5ebef;
+      padding: 13px 17px; color: #60778b; font-family: var(--serif); font-size: 12px;
+      transform: rotate(-5deg); box-shadow: 0 8px 22px rgba(40,50,40,.08);
+    }
+    .section { padding: 100px 0; }
+    .section-white { background: var(--white); }
+    .section-head { max-width: 650px; margin: 0 auto 55px; text-align: center; }
+    .section-head h2 { margin: 18px 0 15px; color: var(--navy); font: 500 clamp(27px,3vw,38px)/1.6 var(--serif); }
+    .section-head p { margin: 0; color: var(--muted); font-size: 13px; }
+    .problem-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .problem {
+      background: var(--paper); border: 1px solid var(--line); padding: 28px 25px 30px;
+      min-height: 205px;
+    }
+    .problem-num { color: #9aab91; font: 22px var(--serif); }
+    .problem h3 { color: var(--navy); font: 500 18px/1.7 var(--serif); margin: 16px 0 8px; }
+    .problem p { color: var(--muted); font-size: 12px; margin: 0; }
+    .bridge { text-align: center; padding: 46px 0 0; color: var(--navy); font: 500 22px/1.8 var(--serif); }
+    .bridge span { color: var(--sage-deep); }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; position: relative; }
+    .step { text-align: center; position: relative; }
+    .step-visual {
+      width: 170px; height: 170px; border-radius: 50%; background: var(--paper);
+      border: 1px solid var(--line); margin: 0 auto 24px; display: grid; place-items: center;
+      color: var(--navy); position: relative;
+    }
+    .step-visual svg { width: 66px; height: 66px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+    .step-num {
+      position: absolute; top: 3px; right: 8px; width: 33px; height: 33px;
+      border-radius: 50%; background: var(--navy); color: white; display: grid; place-items: center;
+      font: 13px var(--serif);
+    }
+    .step h3 { margin: 0 0 10px; color: var(--navy); font: 500 19px var(--serif); }
+    .step p { max-width: 270px; margin: auto; color: var(--muted); font-size: 12px; }
+    .feature-band { background: #e8edf1; padding: 72px 0; }
+    .feature-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 70px; }
+    .book-mock {
+      width: 250px; height: 330px; margin: auto; background: #fbfcfc; border: 1px solid #d8e0e7;
+      box-shadow: 15px 16px 0 #e0e6eb; transform: rotate(-5deg); padding: 35px 28px;
+      color: var(--navy); position: relative;
+    }
+    .book-mock::after { content: ""; position: absolute; top: 0; bottom: 0; left: 16px; width: 1px; background: #dce4ea; }
+    .book-kicker { font-size: 9px; letter-spacing: .2em; }
+    .book-title { margin-top: 54px; font: 500 26px/1.7 var(--serif); letter-spacing: .13em; }
+    .book-sub { margin-top: 16px; font: 11px var(--serif); color: #71808e; }
+    .book-bottom { position: absolute; bottom: 25px; left: 28px; font: 10px var(--serif); color: #7e8c99; }
+    .feature-copy h2 { color: var(--navy); font: 500 31px/1.7 var(--serif); margin: 18px 0; }
+    .feature-copy p { color: #626b79; font-size: 13px; }
+    .feature-list { list-style: none; padding: 0; margin: 25px 0 0; }
+    .feature-list li { padding: 10px 0; border-bottom: 1px solid #d7dfe6; color: #515b68; font-size: 12px; }
+    .feature-list li::before { content: "○"; color: var(--sage-deep); margin-right: 10px; }
+    .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .for-card { padding: 34px; border: 1px solid var(--line); background: var(--white); }
+    .for-card h3 { margin: 0 0 12px; color: var(--navy); font: 500 21px var(--serif); }
+    .for-card p { color: var(--muted); font-size: 12px; margin: 0; }
+    .for-label { color: var(--sage-deep); font-size: 10px; letter-spacing: .15em; font-weight: 700; margin-bottom: 14px; }
+    .safety { background: #e9eef2; }
+    .safety-inner { max-width: 760px; margin: auto; text-align: center; }
+    .safety h2 { color: var(--navy); font: 500 27px var(--serif); }
+    .safety p { color: var(--muted); font-size: 12px; }
+    .cta { background: var(--navy); color: white; padding: 84px 0; text-align: center; }
+    .cta .eyebrow { color: #c7d0c1; }
+    .cta h2 { font: 500 clamp(28px,3vw,39px)/1.7 var(--serif); margin: 20px 0 15px; }
+    .cta p { color: #d6dced; font-size: 13px; margin: 0 0 28px; }
+    .cta .btn { background: var(--paper); color: var(--navy); border-color: var(--paper); }
+    .cta .btn:hover { background: white; }
+    footer { padding: 28px 0; color: #838995; font-size: 10px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    .footer-brand { color: var(--navy); font: 16px var(--serif); letter-spacing: .1em; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      header { height: 68px; }
+      .nav-links { display: none; }
+      .nav .btn { min-height: 38px; padding: 0 12px; }
+      .brand-name { font-size: 17px; }
+      .hero { padding: 55px 0 65px; }
+      .hero-grid, .feature-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero h1 { font-size: clamp(31px,8vw,42px); }
+      .hero-art { min-height: 390px; }
+      .paper-sheet { min-height: 365px; width: min(350px, 88%); }
+      .problem-grid, .steps { grid-template-columns: 1fr; gap: 15px; }
+      .problem { min-height: 0; }
+      .bridge { font-size: 19px; padding-top: 35px; }
+      .section { padding: 72px 0; }
+      .section-head { margin-bottom: 38px; }
+      .step { padding: 12px 0 24px; }
+      .step-visual { width: 145px; height: 145px; }
+      .feature-grid { gap: 55px; }
+      .feature-copy h2 { font-size: 27px; }
+      .for-grid { grid-template-columns: 1fr; }
+      .for-card { padding: 26px; }
+      .cta { padding: 68px 0; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="ことのはノート トップ">
+        <span class="brand-mark">言</span><span class="brand-name">ことのはノート</span>
+      </a>
+      <nav class="nav-links" aria-label="メインナビゲーション">
+        <a href="#about">サービスについて</a>
+        <a href="#how">使い方</a>
+        <a href="#journal">紙の日記帳</a>
+        <a href="#safety">安心への取り組み</a>
+      </nav>
+      <a class="btn" href="#contact">開発に参加する <span class="arrow">→</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">A little note for better care</span>
+          <h1>その気持ち、<br>ひとりで抱えなくても<br><span>大丈夫。</span></h1>
+          <p class="hero-lead">うまく言葉にできない不安や、日々の小さな変化。<br>書くことから、あなたに合う専門家との対話をはじめませんか。</p>
+          <div class="hero-actions">
+            <a class="btn" href="#how">ことのはノートについて <span class="arrow">→</span></a>
+            <a class="btn btn-outline" href="#contact">開発への参加・お問い合わせ</a>
+          </div>
+          <p class="small-note">※現在、サービスの実証・開発に向けた準備を進めています。</p>
+        </div>
+        <div class="hero-art" aria-label="紙の日記帳のイメージ">
+          <div class="paper-sheet">
+            <div class="paper-date">2026. 11. 06　Friday</div>
+            <div class="paper-title">今日のわたしへ</div>
+            <div class="paper-lines">
+              なんとなく気になっていること。<br>
+              うまく説明できないけれど、<br>
+              誰かに聞いてほしいこと。<br>
+              <br>
+              少しずつ書いてみたら、<br>
+              自分の気持ちが見えてきた。
+            </div>
+            <div class="paper-sign">ここから、はじめてみよう。</div>
+            <div class="stamp">書くことから<br>ケアがはじまる</div>
+          </div>
+          <div class="floating-note">小さなことばも、大切な手がかり。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">When words are hard to find</span>
+          <h2>相談したいのに、<br>うまく伝えられないことはありませんか。</h2>
+          <p>専門家に相談するとき、困りごとを整理して話すのは簡単ではありません。</p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem">
+            <div class="problem-num">01</div>
+            <h3>何から話せばいいか<br>わからない</h3>
+            <p>気になることはあるけれど、言葉にしようとするとまとまらない。</p>
+          </article>
+          <article class="problem">
+            <div class="problem-num">02</div>
+            <h3>伝えたいことを<br>忘れてしまう</h3>
+            <p>相談の場では緊張して、日々感じていたことをうまく伝えられない。</p>
+          </article>
+          <article class="problem">
+            <div class="problem-num">03</div>
+            <h3>自分に合う専門家に<br>出会えるか不安</h3>
+            <p>どんな人に相談すればよいのか、相性が合うのかがわからない。</p>
+          </article>
+        </div>
+        <div class="bridge">その「うまく話せない」を、<br><span>書くこと</span>から少しずつ変えていく。</div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>あなたのペースで書いて、<br>専門家と少しずつ分かち合う。</h2>
+          <p>紙でも、スマートフォンでも。無理なく続けられる方法を目指しています。</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-visual">
+              <span class="step-num">1</span>
+              <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M18 13h34l11 11v43H18z"/><path d="M52 13v12h11M28 36h25M28 46h25M28 56h17"/><path d="m48 59 12-12 6 6-12 12-8 2z"/></svg>
+            </div>
+            <h3>日々のことを書く</h3>
+            <p>体調や気持ち、気になったことを、短い言葉でも自由に記録します。</p>
+          </article>
+          <article class="step">
+            <div class="step-visual">
+              <span class="step-num">2</span>
+              <svg viewBox="0 0 80 80" aria-hidden="true"><rect x="20" y="12" width="40" height="56" rx="5"/><path d="M29 22h22M29 30h22M29 38h14M28 53l7-7 7 7 6-6 7 6"/></svg>
+            </div>
+            <h3>写真に撮って共有する</h3>
+            <p>紙に書いた日記をスマートフォンで撮影。書いた内容を記録として残します。</p>
+          </article>
+          <article class="step">
+            <div class="step-visual">
+              <span class="step-num">3</span>
+              <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M15 18h50v36H38L25 65v-11h-10z"/><path d="M25 30h30M25 39h23"/><path d="M48 59h17v-9"/></svg>
+            </div>
+            <h3>専門家と対話する</h3>
+            <p>記録をもとに、専門家と振り返りながら、自分に合うケアを考えていきます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-band" id="journal">
+      <div class="wrap feature-grid">
+        <div class="book-mock" aria-label="ことのはノート紙の日記帳のイメージ">
+          <div class="book-kicker">KOTONOHA NOTE</div>
+          <div class="book-title">わたしを<br>綴るノート</div>
+          <div class="book-sub">日々の気持ちと、小さな変化の記録</div>
+          <div class="book-bottom">WRITE · NOTICE · SHARE</div>
+        </div>
+        <div class="feature-copy">
+          <span class="eyebrow">Paper meets digital</span>
+          <h2>手で書く心地よさは、そのままに。</h2>
+          <p>画面に向かうより、紙に書くほうが気持ちを整理しやすい人もいます。ことのはノートは、紙の日記帳とデジタルの便利さを組み合わせ、あなたらしい記録の方法を大切にします。</p>
+          <ul class="feature-list">
+            <li>思いついたときに、紙へ自由に書ける</li>
+            <li>スマートフォンで撮影して、記録として残せる</li>
+            <li>過去のページを振り返り、変化に気づける</li>
+            <li>共有する内容や範囲を、自分で選べる設計を目指す</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">For both sides</span>
+          <h2>相談する人にも、支える人にも。</h2>
+          <p>一方的に伝えるのではなく、お互いを理解するためのコミュニケーションを育てます。</p>
+        </div>
+        <div class="for-grid">
+          <article class="for-card">
+            <div class="for-label">FOR YOU</div>
+            <h3>自分のことを、少しずつ知っていく。</h3>
+            <p>日々の記録を振り返ることで、気持ちや体調の変化、相談したいことを整理しやすくなります。話すのが苦手でも、自分のペースで伝える準備ができます。</p>
+          </article>
+          <article class="for-card">
+            <div class="for-label">FOR PROFESSIONALS</div>
+            <h3>その人の日常を、理解する手がかりに。</h3>
+            <p>相談の場だけでは見えにくい日々の変化を共有することで、対話のきっかけをつくります。専門家と利用者が一緒に考える関係を支えます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section safety" id="safety">
+      <div class="wrap safety-inner">
+        <span class="eyebrow">Carefully designed</span>
+        <h2>安心して使える仕組みを、丁寧に。</h2>
+        <p>日記には、個人的な気持ちや健康に関する情報が含まれることがあります。ことのはノートは、共有範囲の選択や情報の取り扱いに配慮したサービス設計を目指しています。</p>
+        <p>本サービスは、医師等による診断・治療、緊急時の相談窓口に代わるものではありません。具体的な機能や運用ルールは、実証と専門家の意見を踏まえて検討していきます。</p>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <span class="eyebrow">Join the journey</span>
+        <h2>あなたの声から、<br>これからのケアを一緒につくりたい。</h2>
+        <p>現在、サービスの開発・実証に向けて準備を進めています。<br>利用者や専門家として、開発に関心をお持ちの方の声をお聞かせください。</p>
+        <!-- TODO: 下のリンクをGoogleフォーム等の問い合わせ先に差し替えてください -->
+        <a class="btn" href="mailto:hello@example.com?subject=%E3%81%93%E3%81%A8%E3%81%AE%E3%81%AF%E3%83%8E%E3%83%BC%E3%83%88%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">開発について問い合わせる <span class="arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">ことのはノート</div>
+      <div>© 2026 ことのはノート（仮称）</div>
+      <div>サービス内容は開発中の構想です。</div>
+    </div>
+  </footer>
+</body>
+</html>
