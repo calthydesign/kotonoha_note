@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1a357b">
-  <meta name="description" content="ことのはノートは、日々の気持ちや体調を専門家に伝え、あなたに合うケアにつなげる交換ノートサービスです。">
-  <title>ことのはノート｜その気持ちを、ひとりで抱えないために。</title>
+  <meta name="description" content="ことのはノートは、紙とアプリの日記を通じて、自分に合う心理職などの支援者と継続的なつながりを育てる交換日記型サービスです。">
+  <title>ことのはノート｜言葉を交わすうちに、信頼が育つ。</title>
   <style>
     :root {
       --navy: #1a357b;
@@ -205,85 +205,126 @@
       .cta { padding: 68px 0; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
+
+    .hero h1 span { background: linear-gradient(transparent 72%, #d9dfd1 72%); }
+    .hero-kicker { display:inline-block; margin-top:18px; padding:7px 12px; border:1px solid var(--line); color:var(--sage-deep); font-size:11px; letter-spacing:.08em; }
+    .trust-band { background:var(--navy); color:#fff; padding:30px 0; }
+    .trust-band-inner { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center; }
+    .trust-item strong { display:block; font:500 18px var(--serif); margin-bottom:5px; }
+    .trust-item span { color:#d6dced; font-size:11px; }
+    .section-intro { max-width:720px; margin:0 auto 48px; text-align:center; color:var(--muted); font-size:13px; }
+    .match-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .match-card { background:var(--paper); border:1px solid var(--line); padding:30px; }
+    .match-card h3 { color:var(--navy); font:500 20px/1.6 var(--serif); margin:0 0 10px; }
+    .match-card p { color:var(--muted); font-size:12px; margin:0; }
+    .match-tag { display:inline-block; margin-bottom:14px; padding:5px 10px; background:#e5ebef; color:var(--sage-deep); font-size:10px; letter-spacing:.08em; }
+    .relationship { background:#e8edf1; padding:85px 0; }
+    .relationship-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:55px; align-items:center; }
+    .relationship-copy h2 { color:var(--navy); font:500 31px/1.7 var(--serif); margin:16px 0; }
+    .relationship-copy p { color:#626b79; font-size:13px; }
+    .letter-stack { display:grid; gap:14px; }
+    .letter { background:var(--white); border:1px solid var(--line); padding:22px 25px; box-shadow:var(--shadow); }
+    .letter small { display:block; color:var(--sage-deep); font-size:10px; letter-spacing:.1em; margin-bottom:9px; }
+    .letter p { color:#596574; font:13px/2 var(--serif); margin:0; }
+    .letter.reply { margin-left:42px; border-left:3px solid var(--clay); }
+    .audience-note { margin-top:28px; text-align:center; color:var(--muted); font-size:11px; }
+    .professional-note { margin-top:20px; color:var(--muted); font-size:11px; }
+    .safety-list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:25px; text-align:left; }
+    .safety-list div { background:rgba(255,255,255,.55); padding:14px 16px; color:#596574; font-size:11px; }
+    @media (max-width:760px) {
+      .trust-band-inner { grid-template-columns:1fr; gap:15px; }
+      .match-grid,.relationship-grid,.safety-list { grid-template-columns:1fr; }
+      .relationship-grid { gap:28px; }
+      .relationship-copy h2 { font-size:27px; }
+      .letter.reply { margin-left:18px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#" aria-label="ことのはノート トップ">
+      <a class="brand" href="#top" aria-label="ことのはノート トップ">
         <span class="brand-mark">言</span><span class="brand-name">ことのはノート</span>
       </a>
       <nav class="nav-links" aria-label="メインナビゲーション">
-        <a href="#about">サービスについて</a>
+        <a href="#about">大切にしていること</a>
         <a href="#how">使い方</a>
-        <a href="#journal">紙の日記帳</a>
+        <a href="#journal">紙とアプリ</a>
         <a href="#safety">安心への取り組み</a>
       </nav>
       <div class="nav-actions">
-        <a class="nav-prototype" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">プロトタイプを見る ↗</a>
+        <a class="nav-prototype" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">試作版を見る ↗</a>
         <a class="btn" href="#contact">開発に参加する <span class="arrow">→</span></a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">A little note for better care</span>
-          <h1>その気持ち、<br>ひとりで抱えなくても<br><span>大丈夫。</span></h1>
-          <p class="hero-lead">うまく言葉にできない不安や、日々の小さな変化。<br>書くことから、あなたに合う専門家との対話をはじめませんか。</p>
+          <span class="eyebrow">A note that grows trust</span>
+          <h1>言葉を交わすうちに、<br><span>信頼が育つ。</span></h1>
+          <p class="hero-lead">毎日の小さな気持ちや、うまく話せない不安も。<br>日記を通じて、自分に合う人と少しずつつながっていく。<br>ことのはノートは、そんな関係を育てる交換日記サービスです。</p>
           <div class="hero-actions">
-            <a class="btn" href="#how">ことのはノートについて <span class="arrow">→</span></a>
-            <a class="btn btn-outline" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">プロトタイプを試す ↗</a>
+            <a class="btn" href="#how">サービスの使い方 <span class="arrow">→</span></a>
+            <a class="btn btn-outline" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">スキャン試作版を見る ↗</a>
           </div>
-          <p class="small-note">※現在、サービスの実証・開発に向けた準備を進めています。</p>
+          <span class="hero-kicker">まずは、産後の女性と心理職とのつながりから。</span>
+          <p class="small-note">※現在、サービスの開発・実証に向けて準備中です。掲載内容は開発構想を含みます。</p>
         </div>
-        <div class="hero-art" aria-label="紙の日記帳のイメージ">
+        <div class="hero-art" aria-label="日記を通じたやりとりのイメージ">
           <div class="paper-sheet">
-            <div class="paper-date">2026. 11. 06　Friday</div>
+            <div class="paper-date">ある日のノート</div>
             <div class="paper-title">今日のわたしへ</div>
             <div class="paper-lines">
-              なんとなく気になっていること。<br>
-              うまく説明できないけれど、<br>
-              誰かに聞いてほしいこと。<br>
+              今日は少し気持ちに余裕がなくて、<br>
+              何がつらいのかも分からないまま。<br>
               <br>
-              少しずつ書いてみたら、<br>
-              自分の気持ちが見えてきた。
+              でも、ここに書いてみたら、<br>
+              少しだけ気持ちがほどけました。
             </div>
-            <div class="paper-sign">ここから、はじめてみよう。</div>
-            <div class="stamp">書くことから<br>ケアがはじまる</div>
+            <div class="paper-sign">読んでくれる人がいる。</div>
+            <div class="stamp">書くことから<br>つながりが育つ</div>
           </div>
-          <div class="floating-note">小さなことばも、大切な手がかり。</div>
+          <div class="floating-note">小さなことばも、あなたの大切な一部。</div>
         </div>
+      </div>
+    </section>
+
+    <section class="trust-band">
+      <div class="wrap trust-band-inner">
+        <div class="trust-item"><strong>自分に合う人と出会う</strong><span>相談テーマや関わり方を知って選べる</span></div>
+        <div class="trust-item"><strong>日々の言葉を届ける</strong><span>紙でもアプリでも、自分のペースで</span></div>
+        <div class="trust-item"><strong>同じ人と関係を育てる</strong><span>記録と返信が少しずつ積み重なる</span></div>
       </div>
     </section>
 
     <section class="section section-white" id="about">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">When words are hard to find</span>
-          <h2>相談したいのに、<br>うまく伝えられないことはありませんか。</h2>
-          <p>専門家に相談するとき、困りごとを整理して話すのは簡単ではありません。</p>
+          <span class="eyebrow">Why kotonoha note</span>
+          <h2>話したい気持ちはある。<br>でも、話せる相手がいない。</h2>
+          <p>産後の生活には、うれしいことも、戸惑うこともあります。身近な人には話しにくい気持ちを、ひとりで抱えてしまうことも。</p>
         </div>
         <div class="problem-grid">
           <article class="problem">
             <div class="problem-num">01</div>
             <h3>何から話せばいいか<br>わからない</h3>
-            <p>気になることはあるけれど、言葉にしようとするとまとまらない。</p>
+            <p>気持ちがまとまらず、相談したいことをうまく言葉にできない。</p>
           </article>
           <article class="problem">
             <div class="problem-num">02</div>
-            <h3>伝えたいことを<br>忘れてしまう</h3>
-            <p>相談の場では緊張して、日々感じていたことをうまく伝えられない。</p>
+            <h3>一度話しても、<br>日常に戻ると孤独</h3>
+            <p>相談の時間だけでは、日々の小さな変化や揺れる気持ちを伝えきれない。</p>
           </article>
           <article class="problem">
             <div class="problem-num">03</div>
-            <h3>自分に合う専門家に<br>出会えるか不安</h3>
-            <p>どんな人に相談すればよいのか、相性が合うのかがわからない。</p>
+            <h3>自分に合う人と<br>出会えるか不安</h3>
+            <p>専門性だけでなく、話しやすさや関わり方も大切にして選びたい。</p>
           </article>
         </div>
-        <div class="bridge">その「うまく話せない」を、<br><span>書くこと</span>から少しずつ変えていく。</div>
+        <div class="bridge">必要なのは、答えをもらうことだけではなく、<br><span>自分を知ろうとしてくれる人</span>がいること。</div>
       </div>
     </section>
 
@@ -291,34 +332,40 @@
       <div class="wrap">
         <div class="section-head">
           <span class="eyebrow">How it works</span>
-          <h2>あなたのペースで書いて、<br>専門家と少しずつ分かち合う。</h2>
-          <p>紙でも、スマートフォンでも。無理なく続けられる方法を目指しています。</p>
+          <h2>出会って、書いて、返事を受け取る。<br>少しずつ信頼を育てる。</h2>
+          <p>ことのはノートは、マッチングして終わりではなく、その後のやりとりを大切にします。</p>
         </div>
         <div class="steps">
           <article class="step">
-            <div class="step-visual">
-              <span class="step-num">1</span>
-              <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M18 13h34l11 11v43H18z"/><path d="M52 13v12h11M28 36h25M28 46h25M28 56h17"/><path d="m48 59 12-12 6 6-12 12-8 2z"/></svg>
-            </div>
-            <h3>日々のことを書く</h3>
-            <p>体調や気持ち、気になったことを、短い言葉でも自由に記録します。</p>
+            <div class="step-visual"><span class="step-num">1</span><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="31" cy="27" r="12"/><path d="M10 65c2-14 10-21 21-21s19 7 21 21M57 20h14M57 30h14M57 40h9"/></svg></div>
+            <h3>自分に合う支援者を選ぶ</h3>
+            <p>資格や専門分野、相談スタイル、得意なテーマを見ながら、自分に合いそうな人を探します。</p>
           </article>
           <article class="step">
-            <div class="step-visual">
-              <span class="step-num">2</span>
-              <svg viewBox="0 0 80 80" aria-hidden="true"><rect x="20" y="12" width="40" height="56" rx="5"/><path d="M29 22h22M29 30h22M29 38h14M28 53l7-7 7 7 6-6 7 6"/></svg>
-            </div>
-            <h3>写真に撮って共有する</h3>
-            <p>紙に書いた日記をスマートフォンで撮影。書いた内容を記録として残します。</p>
+            <div class="step-visual"><span class="step-num">2</span><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M18 13h34l11 11v43H18z"/><path d="M28 36h25M28 46h25M28 56h17"/><path d="M52 13v12h11"/></svg></div>
+            <h3>紙やアプリで日記を書く</h3>
+            <p>手書きでも、スマートフォンでも。気持ちや出来事を、無理のない方法で記録します。</p>
           </article>
           <article class="step">
-            <div class="step-visual">
-              <span class="step-num">3</span>
-              <svg viewBox="0 0 80 80" aria-hidden="true"><path d="M15 18h50v36H38L25 65v-11h-10z"/><path d="M25 30h30M25 39h23"/><path d="M48 59h17v-9"/></svg>
-            </div>
-            <h3>専門家と対話する</h3>
-            <p>記録をもとに、専門家と振り返りながら、自分に合うケアを考えていきます。</p>
+            <div class="step-visual"><span class="step-num">3</span><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M12 17h42v31H29L17 59V48h-5z"/><path d="M26 29h15M26 38h24"/><path d="M42 53h26V34"/><path d="m51 43 7 7 10-13"/></svg></div>
+            <h3>同じ人とやりとりを重ねる</h3>
+            <p>支援者からの返信を受け取り、日記とことばを積み重ねながら関係を育てます。</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="relationship" id="relationship">
+      <div class="wrap relationship-grid">
+        <div class="relationship-copy">
+          <span class="eyebrow">A continuing relationship</span>
+          <h2>「読んでくれている」<br>その実感を大切に。</h2>
+          <p>前に書いたことを覚えていてくれる。小さな変化に気づいてくれる。そんなやりとりが、次の言葉を書くきっかけになります。</p>
+          <p>ことのはノートが目指すのは、相談のたびに一から説明する関係ではなく、同じ人と少しずつ理解を深めていく関係です。</p>
+        </div>
+        <div class="letter-stack">
+          <article class="letter"><small>あなたの日記</small><p>今日は少し疲れてしまいました。理由ははっきりしないけれど、誰かに聞いてほしくて書いてみました。</p></article>
+          <article class="letter reply"><small>支援者からの返信</small><p>書いて届けてくださってありがとうございます。理由がはっきりしない疲れもありますよね。今日はどんな時間が少し楽に感じられましたか？</p></article>
         </div>
       </div>
     </section>
@@ -333,36 +380,51 @@
         </div>
         <div class="feature-copy">
           <span class="eyebrow">Paper meets digital</span>
-          <h2>手で書く心地よさは、そのままに。</h2>
-          <p>画面に向かうより、紙に書くほうが気持ちを整理しやすい人もいます。ことのはノートは、紙の日記帳とデジタルの便利さを組み合わせ、あなたらしい記録の方法を大切にします。</p>
+          <h2>紙でも、アプリでも。<br>あなたらしい書き方で。</h2>
+          <p>手で書くと気持ちが整理しやすい日もあれば、スマートフォンで短く残したい日もあります。どちらかに決めなくても大丈夫。紙とデジタルを行き来しながら、自分のペースで続けられる形を目指します。</p>
           <ul class="feature-list">
-            <li>思いついたときに、紙へ自由に書ける</li>
-            <li>スマートフォンで撮影して、記録として残せる</li>
-            <li>過去のページを振り返り、変化に気づける</li>
-            <li>共有する内容や範囲を、自分で選べる設計を目指す</li>
+            <li>紙の日記帳に自由に書く</li>
+            <li>スマートフォンで撮影し、記録として保存する</li>
+            <li>アプリから短い文章や気づきを入力する</li>
+            <li>共有する日記を自分で選び、支援者に届ける</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section section-white">
+    <section class="section section-white" id="supporters">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">For both sides</span>
-          <h2>相談する人にも、支える人にも。</h2>
-          <p>一方的に伝えるのではなく、お互いを理解するためのコミュニケーションを育てます。</p>
+          <span class="eyebrow">Meet your supporter</span>
+          <h2>資格だけでなく、<br>関わり方も知って選べる。</h2>
+          <p>専門性と、話しやすさ。どちらも大切にしながら、自分に合う支援者との出会いを支えます。</p>
+        </div>
+        <div class="match-grid">
+          <article class="match-card">
+            <span class="match-tag">PROFILE</span>
+            <h3>専門分野や経験を知る</h3>
+            <p>資格、経験、得意な相談テーマ、対応できる範囲などを確認できるプロフィールを目指します。</p>
+          </article>
+          <article class="match-card">
+            <span class="match-tag">STYLE</span>
+            <h3>自分に合う関わり方を選ぶ</h3>
+            <p>じっくり話を聴く、一緒に気持ちを整理する、問いかけを通じて考えるなど、支援スタイルも選択の手がかりにします。</p>
+          </article>
+        </div>
+        <p class="professional-note">初期の連携対象として、公認心理師・臨床心理士などの心理職を想定しています。登録条件や本人確認、提供する支援の範囲は、専門家の意見を踏まえて設計します。</p>
+      </div>
+    </section>
+
+    <section class="section" id="future">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Growing with the community</span>
+          <h2>産後の女性から、<br>さまざまな世代のつながりへ。</h2>
+          <p>まずは産後の女性と心理職との関係づくりから検証し、将来的には高齢者など、日常の中で孤独や不安を抱えやすい人にも広げていくことを目指します。</p>
         </div>
         <div class="for-grid">
-          <article class="for-card">
-            <div class="for-label">FOR YOU</div>
-            <h3>自分のことを、少しずつ知っていく。</h3>
-            <p>日々の記録を振り返ることで、気持ちや体調の変化、相談したいことを整理しやすくなります。話すのが苦手でも、自分のペースで伝える準備ができます。</p>
-          </article>
-          <article class="for-card">
-            <div class="for-label">FOR PROFESSIONALS</div>
-            <h3>その人の日常を、理解する手がかりに。</h3>
-            <p>相談の場だけでは見えにくい日々の変化を共有することで、対話のきっかけをつくります。専門家と利用者が一緒に考える関係を支えます。</p>
-          </article>
+          <article class="for-card"><div class="for-label">FIRST STEP</div><h3>産後の女性</h3><p>育児や生活の変化の中で、気持ちを安心して伝えられる相手と継続的につながる。</p></article>
+          <article class="for-card"><div class="for-label">IN THE FUTURE</div><h3>高齢者・地域で孤立しやすい人</h3><p>日々の出来事や心身の変化を、信頼できる支援者と共有できる仕組みへ。</p></article>
         </div>
       </div>
     </section>
@@ -370,27 +432,32 @@
     <section class="section safety" id="safety">
       <div class="wrap safety-inner">
         <span class="eyebrow">Carefully designed</span>
-        <h2>安心して使える仕組みを、丁寧に。</h2>
-        <p>日記には、個人的な気持ちや健康に関する情報が含まれることがあります。ことのはノートは、共有範囲の選択や情報の取り扱いに配慮したサービス設計を目指しています。</p>
-        <p>本サービスは、医師等による診断・治療、緊急時の相談窓口に代わるものではありません。具体的な機能や運用ルールは、実証と専門家の意見を踏まえて検討していきます。</p>
+        <h2>安心して言葉を預けられるように。</h2>
+        <p>日記には、個人的な気持ちや健康に関する情報が含まれます。ことのはノートは、利用者が共有する内容を選べること、支援者の資格や対応範囲が分かること、安心して利用を続けられることを大切に設計します。</p>
+        <div class="safety-list">
+          <div>共有範囲と同意を分かりやすくする</div>
+          <div>支援者の資格・専門性を確認する</div>
+          <div>返信できる時間や頻度を事前に明示する</div>
+          <div>緊急時の相談先・対応範囲を明確にする</div>
+        </div>
+        <p>本サービスは、医療機関による診断・治療や、緊急時の相談窓口に代わるものではありません。具体的な機能・運用ルールは、専門家の監修と実証を通じて検討していきます。</p>
       </div>
     </section>
 
     <section class="cta" id="contact">
       <div class="wrap">
         <span class="eyebrow">Join the journey</span>
-        <h2>あなたの声から、<br>これからのケアを一緒につくりたい。</h2>
-        <p>現在、サービスの開発・実証に向けて準備を進めています。<br>利用者や専門家として、開発に関心をお持ちの方の声をお聞かせください。</p>
-        <!-- TODO: 下のリンクをGoogleフォーム等の問い合わせ先に差し替えてください -->
+        <h2>あなたの声から、<br>これからのつながりを一緒につくりたい。</h2>
+        <p>現在、サービスの開発・実証に向けて準備を進めています。<br>産後の女性、心理職・カウンセラー、開発に関心をお持ちの方の声をお聞かせください。</p>
         <div class="hero-actions" style="justify-content:center">
-          <a class="btn" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">プロトタイプを試す <span class="arrow">↗</span></a>
+          <a class="btn" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">スキャン試作版を見る <span class="arrow">↗</span></a>
           <a class="btn btn-outline" style="border-color:#d6dced;color:#fff" href="mailto:hello@example.com?subject=%E3%81%93%E3%81%A8%E3%81%AE%E3%81%AF%E3%83%8E%E3%83%BC%E3%83%88%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">開発について問い合わせる</a>
         </div>
+        <p class="small-note">※お問い合わせ先は公開前に正式なフォーム等へ差し替えてください。</p>
       </div>
     </section>
   </main>
 
-  
   <footer>
     <div class="wrap footer-inner">
       <div class="footer-brand">ことのはノート</div>
@@ -399,4 +466,5 @@
     </div>
   </footer>
 </body>
+</html>
 </html>
