@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1a357b">
-  <meta name="description" content="ことのはノートは、紙とアプリの日記を通じて、自分に合う心理職などの支援者と継続的なつながりを育てる交換日記型サービスです。">
+  <meta name="description" content="ことのはノートは、産後の女性の孤独感や不安を、心理職などの専門家との継続的なつながりで支える交換日記サービスです。アプリ入力と手書き日記、2つの方法を選べます。">
   <title>ことのはノート｜言葉を交わすうちに、信頼が育つ。</title>
   <style>
     :root {
@@ -231,6 +231,24 @@
     .professional-note { margin-top:20px; color:var(--muted); font-size:11px; }
     .safety-list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:25px; text-align:left; }
     .safety-list div { background:rgba(255,255,255,.55); padding:14px 16px; color:#596574; font-size:11px; }
+    .exchange-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .exchange-card { background:var(--paper); border:1px solid var(--line); padding:30px; }
+    .exchange-card-paper { background:#f4f0e8; border-color:#e3d9c9; }
+    .exchange-label { color:var(--sage-deep); font-size:10px; font-weight:700; letter-spacing:.16em; margin-bottom:12px; }
+    .exchange-card h3 { color:var(--navy); font:500 20px/1.65 var(--serif); margin:0 0 10px; }
+    .exchange-desc { min-height:66px; color:var(--muted); font-size:12px; margin:0; }
+    .exchange-flow { display:flex; align-items:center; justify-content:space-between; gap:7px; margin:24px 0 18px; }
+    .exchange-step { flex:1; min-width:0; text-align:center; }
+    .exchange-icon { display:grid; place-items:center; width:48px; height:48px; margin:0 auto 9px; border-radius:50%; background:#e2e9ed; color:var(--navy); font:24px var(--serif); }
+    .exchange-card-paper .exchange-icon { background:#eadfce; color:#9b735f; }
+    .exchange-step strong { display:block; color:var(--navy); font-size:11px; }
+    .exchange-step small { display:block; color:var(--muted); font-size:9px; line-height:1.6; }
+    .exchange-arrow { color:var(--clay); font-size:17px; flex:0 0 auto; }
+    .exchange-note { border-top:1px solid var(--line); padding-top:14px; color:#626b79; font:12px/1.8 var(--serif); }
+    .exchange-footer { max-width:700px; margin:36px auto 0; text-align:center; color:var(--navy); }
+    .exchange-footer strong { font:500 20px var(--serif); }
+    .exchange-footer p { color:var(--muted); font-size:12px; margin:10px 0 0; }
+    @media (max-width:760px) { .exchange-grid { grid-template-columns:1fr; } .exchange-card { padding:24px 19px; } .exchange-desc { min-height:0; } .exchange-flow { gap:4px; } .exchange-icon { width:42px; height:42px; } .exchange-step strong { font-size:10px; } .exchange-step small { font-size:8px; } }
     @media (max-width:760px) {
       .trust-band-inner { grid-template-columns:1fr; gap:15px; }
       .match-grid,.relationship-grid,.safety-list { grid-template-columns:1fr; }
@@ -264,8 +282,8 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">A note that grows trust</span>
-          <h1>言葉を交わすうちに、<br><span>信頼が育つ。</span></h1>
-          <p class="hero-lead">毎日の小さな気持ちや、うまく話せない不安も。<br>日記を通じて、自分に合う人と少しずつつながっていく。<br>ことのはノートは、そんな関係を育てる交換日記サービスです。</p>
+          <h1>産後の孤独を、<br>ひとりで抱えない。<br><span>専門家と育てる、日々のつながり。</span></h1>
+          <p class="hero-lead">うれしいことも、不安なことも。産後の毎日に生まれる気持ちを、日記に書いて届けてみませんか。<br>ことのはノートは、心理職などの専門家と日々の言葉を交わしながら、少しずつ信頼関係を育てる交換日記サービスです。</p>
           <div class="hero-actions">
             <a class="btn" href="#how">サービスの使い方 <span class="arrow">→</span></a>
             <a class="btn btn-outline" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">スキャン試作版を見る ↗</a>
@@ -324,7 +342,8 @@
             <p>専門性だけでなく、話しやすさや関わり方も大切にして選びたい。</p>
           </article>
         </div>
-        <div class="bridge">必要なのは、答えをもらうことだけではなく、<br><span>自分を知ろうとしてくれる人</span>がいること。</div>
+        <div class="bridge">必要なのは、答えをもらうことだけではなく、<br><span>自分の気持ちを受けとめ、継続して見守ってくれる人</span>とつながること。</div>
+        <p class="section-intro" style="margin-top:22px">ことのはノートは、産後の女性が孤独や不安をひとりで抱え込まないよう、心理職などの専門家との継続的なコミュニケーションを支えることを目指しています。</p>
       </div>
     </section>
 
@@ -339,17 +358,17 @@
           <article class="step">
             <div class="step-visual"><span class="step-num">1</span><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="31" cy="27" r="12"/><path d="M10 65c2-14 10-21 21-21s19 7 21 21M57 20h14M57 30h14M57 40h9"/></svg></div>
             <h3>自分に合う支援者を選ぶ</h3>
-            <p>資格や専門分野、相談スタイル、得意なテーマを見ながら、自分に合いそうな人を探します。</p>
+            <p>資格や専門分野、関わり方を確認し、自分に合う専門家を選びます。初期は公認心理師・臨床心理士などの心理職との連携を想定しています。</p>
           </article>
           <article class="step">
             <div class="step-visual"><span class="step-num">2</span><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M18 13h34l11 11v43H18z"/><path d="M28 36h25M28 46h25M28 56h17"/><path d="M52 13v12h11"/></svg></div>
             <h3>紙やアプリで日記を書く</h3>
-            <p>手書きでも、スマートフォンでも。気持ちや出来事を、無理のない方法で記録します。</p>
+            <p>アプリに入力する方法と、紙の日記帳に手書きして写真で送る方法から、その日の自分に合う書き方を選べます。</p>
           </article>
           <article class="step">
             <div class="step-visual"><span class="step-num">3</span><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M12 17h42v31H29L17 59V48h-5z"/><path d="M26 29h15M26 38h24"/><path d="M42 53h26V34"/><path d="m51 43 7 7 10-13"/></svg></div>
             <h3>同じ人とやりとりを重ねる</h3>
-            <p>支援者からの返信を受け取り、日記とことばを積み重ねながら関係を育てます。</p>
+            <p>専門家からアプリ上の文章、または手書きの返信画像を受け取ります。同じ人とのやりとりを重ね、少しずつ関係を育てます。</p>
           </article>
         </div>
       </div>
@@ -361,7 +380,7 @@
           <span class="eyebrow">A continuing relationship</span>
           <h2>「読んでくれている」<br>その実感を大切に。</h2>
           <p>前に書いたことを覚えていてくれる。小さな変化に気づいてくれる。そんなやりとりが、次の言葉を書くきっかけになります。</p>
-          <p>ことのはノートが目指すのは、相談のたびに一から説明する関係ではなく、同じ人と少しずつ理解を深めていく関係です。</p>
+          <p>ことのはノートが目指すのは、相談のたびに一から説明する関係ではなく、同じ専門家と少しずつ理解を深めていく関係です。返信はアプリ上の文章だけでなく、手書きのメッセージ画像で受け取る方法も構想しています。</p>
         </div>
         <div class="letter-stack">
           <article class="letter"><small>あなたの日記</small><p>今日は少し疲れてしまいました。理由ははっきりしないけれど、誰かに聞いてほしくて書いてみました。</p></article>
@@ -370,24 +389,44 @@
       </div>
     </section>
 
-    <section class="feature-band" id="journal">
-      <div class="wrap feature-grid">
-        <div class="book-mock" aria-label="ことのはノート紙の日記帳のイメージ">
-          <div class="book-kicker">KOTONOHA NOTE</div>
-          <div class="book-title">わたしを<br>綴るノート</div>
-          <div class="book-sub">日々の気持ちと、小さな変化の記録</div>
-          <div class="book-bottom">WRITE · NOTICE · SHARE</div>
+    <section class="section section-white" id="journal">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Two ways to exchange</span>
+          <h2>デジタルでも、手書きでも。<br>好きな方法で、専門家とやりとり。</h2>
+          <p>書きやすさも、気持ちの伝え方も人それぞれ。ことのはノートでは、2つの交換日記の方法から選べる体験を目指しています。</p>
         </div>
-        <div class="feature-copy">
-          <span class="eyebrow">Paper meets digital</span>
-          <h2>紙でも、アプリでも。<br>あなたらしい書き方で。</h2>
-          <p>手で書くと気持ちが整理しやすい日もあれば、スマートフォンで短く残したい日もあります。どちらかに決めなくても大丈夫。紙とデジタルを行き来しながら、自分のペースで続けられる形を目指します。</p>
-          <ul class="feature-list">
-            <li>紙の日記帳に自由に書く</li>
-            <li>スマートフォンで撮影し、記録として保存する</li>
-            <li>アプリから短い文章や気づきを入力する</li>
-            <li>共有する日記を自分で選び、支援者に届ける</li>
-          </ul>
+        <div class="exchange-grid">
+          <article class="exchange-card">
+            <div class="exchange-label">01 · DIGITAL</div>
+            <h3>アプリで書いて、アプリで返事を受け取る</h3>
+            <p class="exchange-desc">スマートフォンで気軽に入力。専門家からもアプリ上でメッセージが届きます。</p>
+            <div class="exchange-flow">
+              <div class="exchange-step"><span class="exchange-icon">✎</span><strong>日記を書く</strong><small>アプリに入力</small></div>
+              <span class="exchange-arrow">→</span>
+              <div class="exchange-step"><span class="exchange-icon">↗</span><strong>専門家に届ける</strong><small>共有する内容を選択</small></div>
+              <span class="exchange-arrow">→</span>
+              <div class="exchange-step"><span class="exchange-icon">✉</span><strong>返事を読む</strong><small>文章で返信が届く</small></div>
+            </div>
+            <div class="exchange-note">短いメモを残したい日や、スマートフォンで手軽に続けたいときに。</div>
+          </article>
+          <article class="exchange-card exchange-card-paper">
+            <div class="exchange-label">02 · HANDWRITTEN</div>
+            <h3>紙に書いて送り、手書きの返事を受け取る</h3>
+            <p class="exchange-desc">紙の日記帳に自由に書き、スマートフォンで撮影して送信。専門家からも手書きの返信画像が届きます。</p>
+            <div class="exchange-flow">
+              <div class="exchange-step"><span class="exchange-icon">▤</span><strong>紙に書く</strong><small>好きな筆記具で</small></div>
+              <span class="exchange-arrow">→</span>
+              <div class="exchange-step"><span class="exchange-icon">▧</span><strong>写真で送る</strong><small>アプリから共有</small></div>
+              <span class="exchange-arrow">→</span>
+              <div class="exchange-step"><span class="exchange-icon">✎</span><strong>手書きの返事</strong><small>画像で受け取る</small></div>
+            </div>
+            <div class="exchange-note">紙に向かってゆっくり気持ちを書きたい日や、手書きの温かさを大切にしたいときに。</div>
+          </article>
+        </div>
+        <div class="exchange-footer">
+          <strong>その日の気分や生活に合わせて、選べる。</strong>
+          <p>いつも同じ方法でなくても大丈夫。デジタルの手軽さと、紙に書く心地よさの両方を活かしながら、専門家とのつながりを続けられる形を目指します。</p>
         </div>
       </div>
     </section>
@@ -448,7 +487,7 @@
       <div class="wrap">
         <span class="eyebrow">Join the journey</span>
         <h2>あなたの声から、<br>これからのつながりを一緒につくりたい。</h2>
-        <p>現在、サービスの開発・実証に向けて準備を進めています。<br>産後の女性、心理職・カウンセラー、開発に関心をお持ちの方の声をお聞かせください。</p>
+        <p>現在、産後の女性と心理職などの専門家とのつながりを中心に、サービスの開発・実証に向けて準備を進めています。<br>利用者、支援者、開発に関心をお持ちの方の声をお聞かせください。</p>
         <div class="hero-actions" style="justify-content:center">
           <a class="btn" href="https://kotonoha-note.vercel.app/" target="_blank" rel="noopener noreferrer">スキャン試作版を見る <span class="arrow">↗</span></a>
           <a class="btn btn-outline" style="border-color:#d6dced;color:#fff" href="mailto:hello@example.com?subject=%E3%81%93%E3%81%A8%E3%81%AE%E3%81%AF%E3%83%8E%E3%83%BC%E3%83%88%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">開発について問い合わせる</a>
@@ -466,5 +505,4 @@
     </div>
   </footer>
 </body>
-</html>
 </html>
